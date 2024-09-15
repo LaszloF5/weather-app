@@ -1,0 +1,21 @@
+.chart {
+  width: 100vw;
+  height: 60vh;
+}
+
+.h-tags {
+  margin-top: 1rem;
+}
+
+.table {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid rgb(33, 37, 41);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.last-table {
+  margin-bottom: 2rem;
+}

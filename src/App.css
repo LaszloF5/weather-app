@@ -1,0 +1,35 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.first-heading {
+  margin-top: 4rem;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  background-color: black;
+  margin-bottom: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+}
+
+.links {
+  color: lightskyblue;
+  text-decoration: none;
+}
+
+.links:hover {
+  color: whitesmoke;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
