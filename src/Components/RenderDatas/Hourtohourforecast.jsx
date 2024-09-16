@@ -46,6 +46,16 @@ export default function Hourtohourforecast({ idojarasInfo }) {
           {hourlyDatas.wind_speed_10m[i]} {hourlyUnits.wind_speed_10m}
         </td>
         <td>
+          <img
+            src="arrow.png"
+            alt="arrow"
+            style={{
+              transform: `rotate(${hourlyDatas.wind_direction_10m[i]}deg)`,
+              width: "20px",
+              height: "20px",
+              filter: "invert(100%)",
+            }}
+          />{" "}
           {hourlyDatas.wind_direction_10m[i]} {hourlyUnits.wind_direction_10m}
         </td>
       </tr>

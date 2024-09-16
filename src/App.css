@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.timeZone {
+  color: lightskyblue;
+  margin: 0;
+}
+
 .first-heading {
   margin-top: 4rem;
 }

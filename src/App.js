@@ -36,6 +36,7 @@ export default function App() {
       });
   };
 
+  
   return (
     <div className="App">
       <HashRouter>
@@ -47,10 +48,12 @@ export default function App() {
 
 function AppContent({ idojarasInfo, updateCity }) {
   const location = useLocation();
-
+  const timeZone = idojarasInfo?.idojaras?.timezone;
+  
   return (
     <>
       <div className="menu">
+      <p className="timeZone">Time zone: {timeZone === undefined ? 'Choose first a city.' : timeZone}</p>
         <Link className="links" to="/">
           Home
         </Link>
@@ -78,6 +81,7 @@ function AppContent({ idojarasInfo, updateCity }) {
           <h1 className="first-heading">Prepare for today</h1>
           <h2>Check the weather in your city!</h2>
           <CityForm updateCity={updateCity} />
+          <p>{idojarasInfo?.varos.name}</p>
           <Forecast idojarasInfo={idojarasInfo} />
         </>
       )}
