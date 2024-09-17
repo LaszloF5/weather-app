@@ -19,3 +19,11 @@
 .last-table {
   margin-bottom: 2rem;
 }
+
+.alignCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  flex-wrap: wrap;
+}

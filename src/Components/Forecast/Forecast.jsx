@@ -52,6 +52,106 @@ export default function Forecast({ idojarasInfo }) {
     return `${hour}:${minute}`;
   }
 
+  let currentIcon = () => {
+    if (currentDatas.precipitation >= 5) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/heavy-rain-day.png"}
+          alt="heavy rain cloud"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else if (
+      currentDatas.precipitation >= 1 &&
+      currentDatas.precipitation < 5
+    ) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/low-rain-day.png"}
+          alt="low rain cloud"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else if (
+      currentDatas.precipitation < 1 &&
+      currentDatas.cloud_cover >= 0 &&
+      currentDatas.cloud_cover <= 20
+    ) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/0-20cloud-day.png"}
+          alt="0-20% cloud cover"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else if (
+      currentDatas.precipitation < 1 &&
+      currentDatas.cloud_cover >= 21 &&
+      currentDatas.cloud_cover <= 40
+    ) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/21-40cloud-day.png"}
+          alt="21-40% cloud cover"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else if (
+      currentDatas.precipitation < 1 &&
+      currentDatas.cloud_cover >= 41 &&
+      currentDatas.cloud_cover <= 60
+    ) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/41-60cloud-day.png"}
+          alt="41-60% cloud cover"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else if (
+      currentDatas.precipitation < 1 &&
+      currentDatas.cloud_cover >= 61 &&
+      currentDatas.cloud_cover <= 80
+    ) {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/61-80cloud-day.png"}
+          alt="61-80% cloud cover"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    } else {
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
+          alt="< 80% cloud cover"
+          style={{
+            width: "24px",
+            height: "24px",
+          }}
+        />
+      );
+    }
+  };
+
   const nextRendertime = plusTime(nextHour, nextMinute);
 
   currentRowsJsx.push(
@@ -67,8 +167,8 @@ export default function Forecast({ idojarasInfo }) {
       <td>
         {currentDatas.precipitation} {currentUnits.precipitation}
       </td>
-      <td>
-        {currentDatas.cloud_cover} {currentUnits.cloud_cover}
+      <td className="alignCenter">
+        {currentDatas.cloud_cover} {currentUnits.cloud_cover} {currentIcon()}
       </td>
       <td>
         {currentDatas.wind_speed_10m} {currentUnits.wind_speed_10m}

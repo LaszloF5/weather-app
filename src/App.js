@@ -7,7 +7,7 @@ import CityForm from "./Components/CityForm/CityForm";
 import Hourtohourforecast from "./Components/RenderDatas/Hourtohourforecast";
 import Diagrams from "./Components/RenderDatas/Diagrams";
 
-// TODO: A wind direction-hoz 1 kis irányítűt csinálni, és bekalibrálni, feltételezve, hogy 0 fok észak.
+// TODO: Amelyik td-ben kép van, összehangolni a méretet a többi cellával.
 export default function App() {
   const [idojarasInfo, setIdojarasInfo] = useState(null);
 
@@ -36,7 +36,6 @@ export default function App() {
       });
   };
 
-  
   return (
     <div className="App">
       <HashRouter>
@@ -49,11 +48,14 @@ export default function App() {
 function AppContent({ idojarasInfo, updateCity }) {
   const location = useLocation();
   const timeZone = idojarasInfo?.idojaras?.timezone;
-  
+
   return (
     <>
       <div className="menu">
-      <p className="timeZone">Time zone: {timeZone === undefined ? 'Choose first a city.' : timeZone}</p>
+        <p className="timeZone">
+          Time zone:{" "}
+          {timeZone === undefined ? "Choose first a city." : timeZone}
+        </p>
         <Link className="links" to="/">
           Home
         </Link>
