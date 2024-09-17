@@ -18,6 +18,15 @@ export default function Forecast({ idojarasInfo }) {
   const dailyRowsJsx = [];
   const modifiedTime = currentDatas.time.replace("T", " ");
 
+  const sunrise = dailyDatas.sunrise[0]
+    .replace("T", " ")
+    .slice(-5)
+    .replace(":", "");
+  const sunset = dailyDatas.sunset[0]
+    .replace("T", " ")
+    .slice(-5)
+    .replace(":", "");
+
   const toTheChart = [];
   let nextTime = modifiedTime.slice(-5);
   let nextHour = nextTime.slice(0, 2);
@@ -53,102 +62,205 @@ export default function Forecast({ idojarasInfo }) {
   }
 
   let currentIcon = () => {
-    if (currentDatas.precipitation >= 5) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/heavy-rain-day.png"}
-          alt="heavy rain cloud"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
-    } else if (
-      currentDatas.precipitation >= 1 &&
-      currentDatas.precipitation < 5
+    if (
+      modifiedTime.slice(-5).replace(":", "") > sunrise &&
+      modifiedTime.slice(-5).replace(":", "") < sunset
     ) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/low-rain-day.png"}
-          alt="low rain cloud"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
-    } else if (
-      currentDatas.precipitation < 1 &&
-      currentDatas.cloud_cover >= 0 &&
-      currentDatas.cloud_cover <= 20
-    ) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/0-20cloud-day.png"}
-          alt="0-20% cloud cover"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
-    } else if (
-      currentDatas.precipitation < 1 &&
-      currentDatas.cloud_cover >= 21 &&
-      currentDatas.cloud_cover <= 40
-    ) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/21-40cloud-day.png"}
-          alt="21-40% cloud cover"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
-    } else if (
-      currentDatas.precipitation < 1 &&
-      currentDatas.cloud_cover >= 41 &&
-      currentDatas.cloud_cover <= 60
-    ) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/41-60cloud-day.png"}
-          alt="41-60% cloud cover"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
-    } else if (
-      currentDatas.precipitation < 1 &&
-      currentDatas.cloud_cover >= 61 &&
-      currentDatas.cloud_cover <= 80
-    ) {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/61-80cloud-day.png"}
-          alt="61-80% cloud cover"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
+      if (currentDatas.precipitation >= 5) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/heavy-rain-day.png"}
+            alt="heavy rain cloud"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation >= 1 &&
+        currentDatas.precipitation < 5
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/low-rain-day.png"}
+            alt="low rain cloud"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 0 &&
+        currentDatas.cloud_cover <= 20
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/0-20cloud-day.png"}
+            alt="0-20% cloud cover"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 21 &&
+        currentDatas.cloud_cover <= 40
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/21-40cloud-day.png"}
+            alt="21-40% cloud cover"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 41 &&
+        currentDatas.cloud_cover <= 60
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/41-60cloud-day.png"}
+            alt="41-60% cloud cover"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 61 &&
+        currentDatas.cloud_cover <= 80
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/61-80cloud-day.png"}
+            alt="61-80% cloud cover"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
+            alt="< 80% cloud cover"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } ////////////////////////////////////////////
     } else {
-      return (
-        <img
-          src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
-          alt="< 80% cloud cover"
-          style={{
-            width: "24px",
-            height: "24px",
-          }}
-        />
-      );
+      if (currentDatas.precipitation >= 5) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/heavy-rain-night.png"}
+            alt="heavy rain cloud night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation >= 1 &&
+        currentDatas.precipitation < 5
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/low-rain-night.png"}
+            alt="low rain cloud night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 0 &&
+        currentDatas.cloud_cover <= 20
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/0-20cloud-night.png"}
+            alt="0-20% cloud cover night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 21 &&
+        currentDatas.cloud_cover <= 40
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/21-40cloud-night.png"}
+            alt="21-40% cloud cover night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 41 &&
+        currentDatas.cloud_cover <= 60
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/41-60cloud-night.png"}
+            alt="41-60% cloud cover night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else if (
+        currentDatas.precipitation < 1 &&
+        currentDatas.cloud_cover >= 61 &&
+        currentDatas.cloud_cover <= 80
+      ) {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/61-80cloud-night.png"}
+            alt="61-80% cloud cover night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      } else {
+        return (
+          <img
+            src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
+            alt="< 80% cloud cover night"
+            style={{
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        );
+      }
     }
   };
 

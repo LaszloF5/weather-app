@@ -92,3 +92,5 @@ function AppContent({ idojarasInfo, updateCity }) {
 }
 
 // victory, reactstrap
+
+// API: https://api.open-meteo.com/v1/forecast?latitude=47.4984&longitude=19.0404&current=temperature_2m,relative_humidity_2m,is_day,precipitation,cloud_cover,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,precipitation_probability,precipitation,cloud_cover,visibility,wind_speed_10m,wind_direction_10m,wind_gusts_10m,soil_temperature_0cm,soil_moisture_0_to_1cm&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_sum&timezone=Europe%2FBerlin
