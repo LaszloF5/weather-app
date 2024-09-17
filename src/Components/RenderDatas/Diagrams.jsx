@@ -1,5 +1,5 @@
 import "./Diagrams.css";
-import React from "react";
+import React, {useEffect} from "react";
 
 import {
   VictoryChart,
@@ -11,6 +11,9 @@ import {
 } from "victory";
 
 export default function Diagrams({ idojarasInfo }) {
+  useEffect(() => {
+    document.title = "Weather forecast | Diagrams";
+  }, []);
   if (idojarasInfo === null) {
     return (
       <>

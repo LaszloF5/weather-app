@@ -20,10 +20,7 @@
   margin-bottom: 2rem;
 }
 
-.alignCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0 10px;
-  flex-wrap: wrap;
+.imgCss {
+  vertical-align: top;
+  margin-left: 5px;
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import Forecast from "./Components/Forecast/Forecast";
 import CityForm from "./Components/CityForm/CityForm";
@@ -9,6 +9,7 @@ import Diagrams from "./Components/RenderDatas/Diagrams";
 
 // TODO: Amelyik td-ben kép van, összehangolni a méretet a többi cellával.
 export default function App() {
+
   const [idojarasInfo, setIdojarasInfo] = useState(null);
 
   const currentCity = (varos) => {
@@ -70,7 +71,7 @@ function AppContent({ idojarasInfo, updateCity }) {
       <Routes>
         <Route
           path="/Hourtohourforecast"
-          element={<Hourtohourforecast idojarasInfo={idojarasInfo} />}
+          element={<Hourtohourforecast idojarasInfo={idojarasInfo} title="Weather forecast | Hour to hour forecast"/>}
         />
         <Route
           path="/Diagrams"

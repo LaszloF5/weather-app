@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Table } from "reactstrap";
 import "./Hourtohourforecast.css";
 
 export default function Hourtohourforecast({ idojarasInfo }) {
+  useEffect(() => {
+    document.title = "Weather forecast | Hour to hour forecast";
+  }, []);
   if (idojarasInfo === null) {
     return (
       <>
@@ -35,6 +38,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         if (hourlyDatas.precipitation[i] >= 5) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/heavy-rain-day.png"}
               alt="heavy rain cloud"
               style={{
@@ -49,6 +53,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/low-rain-day.png"}
               alt="low rain cloud"
               style={{
@@ -64,6 +69,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/0-20cloud-day.png"}
               alt="0-20% cloud cover"
               style={{
@@ -79,6 +85,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/21-40cloud-day.png"}
               alt="21-40% cloud cover"
               style={{
@@ -94,6 +101,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/41-60cloud-day.png"}
               alt="41-60% cloud cover"
               style={{
@@ -109,6 +117,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/61-80cloud-day.png"}
               alt="61-80% cloud cover"
               style={{
@@ -120,6 +129,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         } else {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
               alt="< 80% cloud cover"
               style={{
@@ -133,6 +143,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         if (hourlyDatas.precipitation[i] >= 5) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/heavy-rain-night.png"}
               alt="heavy rain cloud night"
               style={{
@@ -147,6 +158,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/low-rain-night.png"}
               alt="low rain cloud night"
               style={{
@@ -162,6 +174,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/0-20cloud-night.png"}
               alt="0-20% cloud cover night"
               style={{
@@ -177,6 +190,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/21-40cloud-night.png"}
               alt="21-40% cloud cover night"
               style={{
@@ -192,6 +206,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/41-60cloud-night.png"}
               alt="41-60% cloud cover night"
               style={{
@@ -207,6 +222,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         ) {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/61-80cloud-night.png"}
               alt="61-80% cloud cover night"
               style={{
@@ -218,6 +234,7 @@ export default function Hourtohourforecast({ idojarasInfo }) {
         } else {
           return (
             <img
+              className="imgCss"
               src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
               alt="< 80% cloud cover night"
               style={{

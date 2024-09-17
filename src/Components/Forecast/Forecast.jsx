@@ -1,8 +1,11 @@
 import "./Forecast.css";
-import React from "react";
+import React, {useEffect} from "react";
 import { Table } from "reactstrap";
 
 export default function Forecast({ idojarasInfo }) {
+  useEffect(() => {
+    document.title = "Weather forecast";
+  }, []);
   if (idojarasInfo === null) {
     return <div> Choose a city </div>;
   }
@@ -154,6 +157,7 @@ export default function Forecast({ idojarasInfo }) {
       } else {
         return (
           <img
+            className="imgCss"
             src={process.env.PUBLIC_URL + "/81-100cloud-day.png"}
             alt="< 80% cloud cover"
             style={{
