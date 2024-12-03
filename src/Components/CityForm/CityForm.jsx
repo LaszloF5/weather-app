@@ -2,14 +2,17 @@ import React, { useState } from "react";
 
 export default function CityForm({ updateCity }) {
   const [varos, setVaros] = useState("");
+  const [temp, setTemp] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    updateCity(varos);
+    setVaros(temp);
+    setTemp('');
+    updateCity(temp);
   };
 
   const handleVarosChange = (e) => {
-    setVaros(e.target.value);
+    setTemp(e.target.value);
   };
   return (
     <div>
@@ -19,7 +22,7 @@ export default function CityForm({ updateCity }) {
           <input
             type="text"
             name="city"
-            value={varos}
+            value={temp}
             onChange={handleVarosChange}
             className="m-2"
           />

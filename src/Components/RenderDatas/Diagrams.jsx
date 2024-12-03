@@ -51,7 +51,7 @@ export default function Diagrams({ idojarasInfo }) {
           style={{
             axisLabel: { fontSize: 20, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 15, padding: 5 },
+            tickLabels: { fontSize: 20, padding: 5 },
             grid: {
               stroke: "rgba(0, 0, 0, 0.2)",
               strokeWidth: 1,
@@ -65,8 +65,8 @@ export default function Diagrams({ idojarasInfo }) {
           y="temperature"
           style={{
             data: {
-              fill: "#c43a31",
-              stroke: "#c43a31",
+              fill: "rgba(196, 58, 49, 0.3)",
+              stroke: "rgba(196, 58, 49, 0.3)",
               strokeWidth: 2,
             },
           }}
@@ -115,7 +115,7 @@ export default function Diagrams({ idojarasInfo }) {
       </section>
       <section className="chart container">
         {" "}
-        <h1 className="first">Daily precip chart</h1>{" "}
+        <h1 className="first">Daily precipitation chart</h1>{" "}
         {displayWeatherChartPrecip}
       </section>
     </>

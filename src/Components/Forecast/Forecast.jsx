@@ -7,7 +7,7 @@ export default function Forecast({ idojarasInfo }) {
     document.title = "Weather forecast";
   }, []);
   if (idojarasInfo === null) {
-    return <div> Choose a city </div>;
+    return <div></div>;
   }
 
   const currentRowsJsx = [];
